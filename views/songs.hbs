@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Search Songs</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <h1>
+    <span>🎶 Songs</span>
+    
+    {{#if isAdmin}}
+      <a href="/users" class="button">👥 See All Users</a>
+    {{/if}}
+  </h1>
+
+  <div style="display: flex; justify-content: center; width: 100%;">
+    <a href="/songs/playlist" class="button playlist-button">🎵 My Playlist</a>
+    <a href="/login" class="button logout-button">🚪 Logout</a>
+  </div>
+
+  <!-- Input Area -->
+  <div id="input_area">
+      <label for="songTitleTextField">Enter Song Title:</label>
+      <input type="text" name="song" id="songTitleTextField" />
+      <button id="submit_button">Submit</button>
+  </div>
+
+  <!-- Search Results Area -->
+  <div id="search_results_area">
+    <table id="searchResultsTable">
+        <thead>
+            <tr>
+                <th>Actions</th>
+                <th>Song Title</th>
+                <th>Artist</th>
+                <th>Artwork</th>
+            </tr>
+        </thead>
+        <tbody id="searchResultsBody">
+            <!-- Search results will be inserted here dynamically -->
+        </tbody>
+    </table>
+  </div>
+
+  <!-- Link to external JavaScript -->
+  <script src="/script.js"></script>
+</body>
+</html>

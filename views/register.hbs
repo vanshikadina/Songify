@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register | Songify</title>
+  <link rel="stylesheet" href="style.css"> <!-- Optional external stylesheet -->
+  <style>
+    body {
+      background: linear-gradient(to right, #4A00E0, #8E2DE2);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .register-container {
+      background: rgba(0, 0, 0, 0.75);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      width: 380px;
+      text-align: center;
+    }
+
+    .register-container h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      text-align: left;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #ff4081;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #e91e63;
+    }
+
+    .error-message {
+      color: #ff8080;
+      margin-bottom: 15px;
+    }
+
+    a {
+      color: #90caf9;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="register-container">
+    <h1>Create Your Songify Account <span style="color: yellow;">🎵</span></h1>
+
+    {{#if error}}
+      <p class="error-message">{{error}}</p>
+    {{/if}}
+
+    <form action="/register" method="POST">
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username" required>
+
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" required>
+
+      <label for="accessCode">Access Code (if any):</label>
+      <input type="text" name="accessCode" id="accessCode">
+
+      <button type="submit">Register</button>
+    </form>
+
+    <div class="footer">
+      <p>Already have an account? <a href="/login">Login</a></p>
+    </div>
+  </div>
+</body>
+</html>

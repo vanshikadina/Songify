@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Page Title -->
+  <header style="text-align: center; margin-top: 20px;">
+    <h1>{{title}}</h1>
+  </header>
+
+  <!-- Back to Songs Button -->
+  <div style="text-align: center; margin: 20px 0;">
+    <a href="/songs?role={{role}}" class="button back-button">🔙 Back to Songs</a>
+  </div>
+
+  <!-- User Entries Table -->
+  <div class="user-table-container">
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>UserID</th>
+          <th>Actions</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each userEntries}} 
+          <tr>
+            <td>{{this.userid}}</td>
+            <td>
+              <!-- Remove button linking to the route to remove this user -->
+              <a href="/remove_user?userid={{this.userid}}">
+                <button class="remove-button">Remove</button>
+              </a>
+            </td>
+            <td>{{this.role}}
+          </tr>
+        {{/each}} 
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

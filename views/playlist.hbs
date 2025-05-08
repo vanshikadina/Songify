@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Playlist</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <!-- Page Title -->
+  <header>
+    <h1>🎵 My Playlist</h1>
+  </header>
+
+  <!-- Back to Songs Button -->
+  <div class="back-button-container">
+    <a href="/songs?role={{role}}" class="button back-button">🔙 Back to Songs</a>
+  </div>
+
+  <!-- Playlist Table -->
+  {{#if playlist.length}}
+    <div class="playlist-table-container">
+      <table class="playlist-table">
+        <thead>
+          <tr>
+            <th>Actions</th>
+            <th>Song Title</th>
+            <th>Artist</th>
+            <th>Artwork</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each playlist}}
+            <tr>
+              <td>
+                <!-- Remove button, linking to the removal route with the song details -->
+                <a href="/playlist/remove?song_title={{encodeURIComponent song_title}}&artist_name={{encodeURIComponent artist_name}}">
+                  <button class="remove-button">-</button>
+                </a>
+              </td>
+              <td>{{song_title}}</td>
+              <td>{{artist_name}}</td>
+              <td>
+                <img src="{{artwork_url}}" alt="Artwork" class="artwork-image">
+              </td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  {{else}}
+    <p class="empty-playlist-message">Your playlist is empty. Go add some songs! 🎶</p>
+  {{/if}}
+
+</body>
+</html>
+
+
